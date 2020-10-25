@@ -1,0 +1,8 @@
+-   id: dict-keys-sorter
+    name: Sort keys of dictionary
+    description: Sorts keys of dictionary 
+    entry: sort-dict-keys
+    additional_dependencies: ['libcst']
+    language: python
+    types: [python]
+

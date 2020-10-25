@@ -9,7 +9,7 @@ import libcst as cst
 from pathlib import Path
 
 
-KEY_VALUE_PATTERN = re.compile(r'^(\"|\')(?P<key_value>.*)(\"|\')$')
+KEY_PATTERN = re.compile(r'^(\"|\')(?P<key>.*)(\"|\')$')
 EXIT_CODE_NO_CHANGES = 0
 EXIT_CODE_WITH_CHANGES = 1
 
@@ -53,16 +53,12 @@ def apply_formatting(
 
 
 def extract_key_value(node: cst.BaseString):
-    return re.match(
-        KEY_VALUE_PATTERN, node.value
-    ).groupdict()['key_value']
+    return re.match(KEY_PATTERN, node.value).groupdict()['key']
 
 
 def sort_by_keys(elements: List[cst.DictElement]):
     # special symbols -> cipher -> uppercase -> lowercase
-    return tuple(
-        sorted(elements, key=lambda x: extract_key_value(x.key))
-    )
+    return tuple(sorted(elements, key=lambda x: extract_key_value(x.key)))
 
 
 def ensure_keys_sorted(node: cst.Dict):
