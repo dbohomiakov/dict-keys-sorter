@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dict-keys-sorter"
+version = "0.1.0"
+description = "Sorter for dictionary keys"
+authors = ["Dmytro Bohomiakov <dmitrij.bogomyakov@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+libcst = "^0.3.20"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
