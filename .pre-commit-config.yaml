@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: dict-keys-sorter
+        name: dict-keys-sorter
+        language: system
+        entry: dict-keys-sorter
+        types_or: [python, pyi]
