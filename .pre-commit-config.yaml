@@ -1,0 +1,28 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: debug-statements
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.9.3
+    hooks:
+      - id: isort
+  - repo: https://github.com/psf/black
+    rev: 21.9b0
+    hooks:
+      - id: black
+        language_version: python3.9
+        args: [
+          --line-length=79,
+          --skip-string-normalization,
+          --safe,
+        ]
+  - repo: local
+    hooks:
+      - id: dict-keys-sorter
+        name: dict-keys-sorter
+        language: system
+        entry: dict-keys-sorter
+        types_or: [python, pyi]
